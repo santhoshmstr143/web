@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Santhosh's website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="app">
+        <!-- Canvas for particle effects -->
+        <canvas id="canvas"></canvas>
+
+        <!-- Image detail modal -->
+        <div id="imageDetailModal" class="image-detail-modal">
+            <div class="modal-content">
+                <button class="close-modal" onclick="closeImageModal()">&times;</button>
+                <img id="modalImage" class="modal-image" src="" alt="Image detail">
+                <h3 id="modalTitle" class="modal-title"></h3>
+                <p id="modalDescription" class="modal-description"></p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="sidebar">
+                <img src="images/profile.png" alt="Profile Picture" class="profile-img">
+                <div class="coding-name">SANTHOSH</div>
+                <ul class="nav-links">
+                    <li class="active" data-section="about">About</li>
+                    <li data-section="education">Education</li>
+                    <li data-section="skills">Skills</li>
+                    <li data-section="portfolio">Hobbies</li>
+                    <li data-section="contact">Contact</li>
+                </ul>
+                <div class="social-links">
+                    <a href="mailto:santhoshreddy.mstr@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    <a href="https://instagram.com/mohan._.santhosh" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/santhoshmstr143" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="copyright">© 2025 All rights reserved</div>
+            </div>
+            
+            <div class="content">
+                <div id="about" class="section active">
+                    <h2 class="section-title">About Me</h2>
+                    <p>Hello! I'm Santhosh, a passionate developer and anime enthusiast. I enjoy building creative web applications and exploring new technologies. I'm originally from Kakinada, a beautiful coastal city in Andhra Pradesh known for its scenic beauty and cultural heritage.</p>
+                    <p style="margin-top: 15px;">When I'm not coding, you'll find me watching anime, discussing plot theories, or sketching my favorite characters. I believe in continuous learning and pushing boundaries to create meaningful digital experiences.</p><br><br><br>
+                    <h2 class="section-title">Photo's of places near me</h2>
+                    
+                    <div style="margin-top: 30px; display: flex; justify-content: space-around; flex-wrap: wrap;">
+                        <div class="image-container" onclick="showImageDetails('images/beach.png', 'Kakinada Beach', 'The beautiful coastline of Kakinada is known for its serene beaches and spectacular sunrises. This beach stretches for several kilometers and is a favorite spot for morning walks and evening relaxation. The gentle waves and golden sands make it a perfect place for reflection and peace.')">
+                            <img src="images/beach.png" alt="Kakinada Beach" class="location-image">
+                        </div>
+                        <div class="image-container" onclick="showImageDetails('images/temple.png', 'Historic Temple', 'This ancient temple in my hometown has stood for centuries as a testament to our rich cultural heritage. With intricate carvings and spiritual significance, it attracts devotees and tourists alike. The architecture showcases the incredible craftsmanship of artisans from a bygone era.')">
+                            <img src="images/temple.png" alt="Hometown Temple" class="location-image">
+                        </div>
+                        <div class="image-container" onclick="showImageDetails('images/fest.png', 'Local Festival', 'Our vibrant local festivals bring the community together in celebration. This particular event features traditional music, dance, and cuisine that have been passed down through generations. The colorful decorations and joyful atmosphere reflect the warm spirit of our people.')">
+                            <img src="images/fest.png" alt="Local Festival" class="location-image">
+                        </div>
+                        <div class="image-container" onclick="showImageDetails('images/sugar.png', 'Sugar Cane Factory', 'The sugar cane factory is an important industrial landmark in our region. It provides employment to hundreds of locals and processes sugar cane from surrounding farms. The factory represents the agricultural backbone of our economy and the sweet heritage of our land.')">
+                            <img src="images/sugar.png" alt="Sugar cane factory" class="location-image">
+                        </div>
+                        <div class="image-container" onclick="showImageDetails('images/home.png', 'My Childhood Home', 'This is where I grew up, surrounded by loving family and fond memories. The house might seem simple, but it was filled with laughter, learning, and the foundations of who I am today. The garden in front was where I spent countless hours playing and dreaming.')">
+                            <img src="images/home.png" alt="Home" class="location-image">
+                        </div>
+                        <div class="image-container" onclick="showImageDetails('images/highway.png', 'Coastal Highway', 'The scenic coastal highway connects our town to neighboring cities. Driving along this road offers breathtaking views of the Bay of Bengal on one side and lush green fields on the other. This route holds many memories of family trips and journeys of discovery.')">
+                            <img src="images/highway.png" alt="Coastal Highway" class="location-image">
+                        </div>
+                        <div class="image-container" onclick="showImageDetails('images/kulai.png', 'Kulai Cheruvu Paek', 'A peaceful escape near home—Kulai Cheruvu holds the scent of rain-soaked soil, the shimmer of water under soft sunsets, and the quiet whispers of childhood walks.')">
+                            <img src="images/kulai.png" alt="Kulai Cheruvu Paek" class="location-image">
+                        </div>                        
+                    </div>
+                </div>
+                
+                <div id="education" class="section">
+                    <h2 class="section-title">Education Journey</h2>
+                    <div class="school-box" onclick="toggleDetails('narayana')">
+                        <h3>Narayana School, Kakinada</h3>
+                        <p>Class 1st</p>
+                    </div>
+                    <div id="narayana" class="school-details">
+                        <p>Started my educational journey at Narayana School in Kakinada, where I developed a strong foundation in academics.</p>
+                        <div class="image-container" onclick="showImageDetails('images/narayana.png', 'Narayana School', 'My first school where I began my educational journey. Narayana School is known for its academic excellence and disciplined approach to learning. The supportive teachers here helped me develop my early interest in mathematics and science.')">
+                            <img src="images/narayana.png" alt="Narayana School" class="lift-on-hover" style="width:100%; max-width:300px; border-radius:5px; margin-top:10px;">
+                        </div>
+                    </div>
+                    
+                    <div class="school-box" onclick="toggleDetails('stjohn')">
+                        <h3>St. John School, Gannavaram</h3>
+                        <p>Class 2nd - 3rd</p>
+                    </div>
+                    <div id="stjohn" class="school-details">
+                        <p>Continued my primary education at St. John School in Gannavaram, focusing on core subjects and participating in various extracurricular activities.</p>
+                        <div class="image-container" onclick="showImageDetails('images/johns.png', 'St. John School', 'St. John School in Gannavaram provided me with a well-rounded education during my early years. The school emphasized both academics and character development. I participated in various competitions and cultural activities that helped build my confidence.')">
+                            <img src="images/johns.png" alt="st.johns School" class="lift-on-hover" style="width:100%; max-width:300px; border-radius:5px; margin-top:10px;">
+                        </div>
+                    </div>
+                    
+                    <div class="school-box" onclick="toggleDetails('viswasanthi1')">
+                        <h3>Sri Viswasanthis, Vuyyuru</h3>
+                        <p>Class 4th - 7th</p>
+                    </div>
+                    <div id="viswasanthi1" class="school-details">
+                        <p>Spent my middle school years at Sri Viswasanthis in Vuyyuru, where I developed interest in science and mathematics while participating in various school competitions.</p>
+                        <div class="image-container" onclick="showImageDetails('images/svs.png', 'Sri Viswasanthis School', 'Sri Viswasanthis in Vuyyuru was where I spent my formative middle school years. The school had excellent science facilities, and I participated in several science fairs and mathematics olympiads. The dedicated teachers here nurtured my analytical thinking and problem-solving skills.')">
+                            <img src="images/svs.png" alt="sri viswasanthi School" class="lift-on-hover" style="width:100%; max-width:300px; border-radius:5px; margin-top:10px;">
+                        </div>
+                    </div>
+                    
+                    <div class="school-box" onclick="toggleDetails('gowtham')">
+                        <h3>KKR Gowtham School, Gudiwada</h3>
+                        <p>Class 8th</p>
+                    </div>
+                    <div id="gowtham" class="school-details">
+                        <p>Studied at KKR Gowtham School in Gudiwada for a year, where I further refined my academic skills.</p>
+                        <div class="image-container" onclick="showImageDetails('images/kkr.png', 'KKR Gowtham School', 'Though I spent just one year at KKR Gowtham School in Gudiwada, it was an important transition period in my education. The competitive atmosphere pushed me to excel academically, and I participated in several inter-school competitions representing my school.')">
+                            <img src="images/kkr.png" alt="Kkr gowtham School" class="lift-on-hover" style="width:100%; max-width:300px; border-radius:5px; margin-top:10px;">
+                        </div>
+                    </div>
+                    
+                    <div class="school-box" onclick="toggleDetails('viswasanthi2')">
+                        <h3>Sri Viswasanthi, Vuyyuru</h3>
+                        <p>Class 9th - 10th</p>
+                    </div>
+                    <div id="viswasanthi2" class="school-details">
+                        <p>Returned to Sri Viswasanthi for my high school education, where I completed my 10th grade with an impressive score of 584/600.</p>
+                        <div class="image-container" onclick="showImageDetails('images/svs.png', 'Sri Viswasanthis High School', 'I returned to Sri Viswasanthis for my high school years and focused intensely on academics. The school prepared me well for board examinations, and with the support of dedicated teachers, I achieved a score of 584/600 in my 10th grade, setting a strong foundation for future academic endeavors.')">
+                            <img src="images/svs2.png" alt="sri viswasanthi School" class="lift-on-hover" style="width:100%; max-width:300px; border-radius:5px; margin-top:10px;">
+                        </div>
+                    </div>
+                    
+                    <div class="school-box" onclick="toggleDetails('ramanbavan')">
+                        <h3>Raman Bavan-1, Gudawalli</h3>
+                        <p>Class 11th - 12th</p>
+                    </div>
+                    <div id="ramanbavan" class="school-details">
+                        <p>Completed my intermediate education at Raman Bavan-1 in Gudawalli with a remarkable score of 979/1000.</p>
+                        <div class="image-container" onclick="showImageDetails('images/rb.png', 'Raman Bavan-1', 'Raman Bavan-1 in Gudawalli provided intensive coaching for competitive exams alongside regular intermediate curriculum. The rigorous schedule and expert faculty helped me excel in both board exams and entrance tests. My score of 979/1000 in intermediate and good ranks in competitive exams reflect the quality of education I received here.')">
+                            <img src="images/rb.png" alt="Raman Bhavan-1" class="lift-on-hover" style="width:100%; max-width:300px; border-radius:5px; margin-top:10px;">
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">Achievements</h3>
+                    <ul style="list-style-type: none; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">• JEE Rank: 705</li>
+                        <li style="margin-bottom: 10px;">• JEE Advanced Rank: 1130</li>
+                        <li style="margin-bottom: 10px;">• AP EMCET Rank: 239</li>
+                        <li style="margin-bottom: 10px;">• TS EMCET Rank: 78</li>
+                        <li style="margin-bottom: 10px;">• 10th Grade: 584/600</li>
+                        <li style="margin-bottom: 10px;">• Intermediate: 979/1000</li>
+                    </ul>
+                </div>
+                
+                <div id="skills" class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    
+                    <div>
+                        <div class="skill-name">C</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-name">C++</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-name">Shell</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-name">Git</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-name">SQL</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-name">NoSQL</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-name">Python</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 71%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-name">HTML</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-name">CSS</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="skill-name">JavaScript</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="portfolio" class="section">
+                    <h2 class="section-title">Hobbies</h2>
+                
+                    <div class="portfolio-box">
+                        <h3 class="sub-title">Drawings</h3>
+                        <div class="image-grid">
+                            <img src="images/1.png" alt="Drawing 1" onclick="showImageDetails('images/1.png', 'Drawing 1', 'Description of Drawing 1')">
+                            <img src="images/2.png" alt="Drawing 2" onclick="showImageDetails('images/2.png', 'Drawing 2', 'Description of Drawing 2')">
+                            <img src="images/3.png" alt="Drawing 3" onclick="showImageDetails('images/3.png', 'Drawing 3', 'Description of Drawing 3')">
+                            <img src="images/4.png" alt="Drawing 4" onclick="showImageDetails('images/4.png', 'Drawing 4', 'Description of Drawing 4')">
+                            <img src="images/5.png" alt="Drawing 5" onclick="showImageDetails('images/5.png', 'Drawing 5', 'Description of Drawing 5')">
+                            <img src="images/6.png" alt="Drawing 6" onclick="showImageDetails('images/6.png', 'Drawing 6', 'Description of Drawing 6')">
+                            <img src="images/7.png" alt="Drawing 6" onclick="showImageDetails('images/7.png', 'Drawing 7', 'Description of Drawing 7')">
+                            <img src="images/8.png" alt="Drawing 6" onclick="showImageDetails('images/8.png', 'Drawing 8', 'Description of Drawing 8')">
+                        </div>
+                    </div>
+                    <div class="portfolio-box">
+                        <h3 class="sub-title">Anime watched</h3>
+                        <div class="image-grid">
+                            <img src="images/anime/ben10.png" alt="Ben 10" onclick="showImageDetails('images/anime/ben10.png', 'Ben 10', 'My childhood favorite! This sketch captures Ben with his Omnitrix glowing.')">
+                            <img src="images/anime/pokemon.png" alt="Pokemon" onclick="showImageDetails('images/anime/pokemon.png', 'Pokemon', 'Ash and Pikachu on a bright day—a nostalgic tribute to the Pokémon world.')">
+                            <img src="images/anime/naruto.png" alt="Naruto Uzumaki" onclick="showImageDetails('images/anime/naruto.png', 'Naruto Uzumaki', 'A tribute to Naruto\'s unbreakable spirit—Believe it!')">
+                            <img src="images/anime/onepeice.png" alt="One Piece" onclick="showImageDetails('images/anime/onepeice.png', 'One Piece', 'Captain Luffy with his iconic straw hat, chasing dreams across the seas.')">
+                            <img src="images/anime/bleach.png" alt="Bleach" onclick="showImageDetails('images/anime/bleach.png', 'Bleach', 'Ichigo wielding Zangetsu—cool, fierce, and drawn with spiritual fire.')">
+                            <img src="images/anime/sao.png" alt="Sword Art Online" onclick="showImageDetails('images/anime/sao.png', 'Sword Art Online', 'Kirito standing alone in Aincrad, ready to fight for freedom.')">
+                            <img src="images/anime/bc.png" alt="Black Clover" onclick="showImageDetails('images/anime/bc.png', 'Black Clover', 'Asta unleashing his anti-magic sword—drawn in high contrast and bold lines.')">
+                            <img src="images/anime/aot.png" alt="Attack on Titan" onclick="showImageDetails('images/anime/aot.png', 'Attack on Titan', 'Eren in titan form—filled with emotion and rage.')">
+                            <img src="images/anime/sl.png" alt="Solo Leveling" onclick="showImageDetails('images/anime/sl.png', 'Solo Leveling', 'Sung Jin-Woo summoning his shadows—a personal favorite drawing!')">
+                            <img src="images/anime/ds.png" alt="Demon Slayer" onclick="showImageDetails('images/anime/ds.png', 'Demon Slayer', 'Tanjiro in battle stance—vibrant and full of motion.')">
+                            <img src="images/anime/jjk.png" alt="Jujutsu Kaisen" onclick="showImageDetails('images/anime/jjk.png', 'Jujutsu Kaisen', 'Itadori facing curses with sheer determination.')">
+                            <img src="images/anime/mha.png" alt="My Hero Academia" onclick="showImageDetails('images/anime/mha.png', 'My Hero Academia', 'Deku rising up with All Might\'s legacy.')">
+                            <img src="images/anime/dn.png" alt="Death Note" onclick="showImageDetails('images/anime/dn.png', 'Death Note', 'Light Yagami holding the Death Note—intense and mysterious.')">
+                            <img src="images/anime/opm.png" alt="One Punch Man" onclick="showImageDetails('images/anime/opm.png', 'One Punch Man', 'Saitama with that iconic blank expression—overpowered and bored.')">
+                            <img src="images/anime/haikyuu.png" alt="Haikyuu!!" onclick="showImageDetails('images/anime/haikyuu.png', 'Haikyuu!!', 'Hinata jumping high—capturing the spirit of volleyball.')">
+                            <img src="images/anime/bulelock.png" alt="Blue Lock" onclick="showImageDetails('images/anime/bulelock.png', 'Blue Lock', 'Isagi ready to strike—soccer meets ambition.')">
+                            <img src="images/anime/drstone.png" alt="Dr. Stone" onclick="showImageDetails('images/anime/drstone.png', 'Dr. Stone', 'Senku with his genius spark—science powering survival.')">
+                            <img src="images/anime/tokyoreven.png" alt="Tokyo Revengers" onclick="showImageDetails('images/anime/tokyoreven.png', 'Tokyo Revengers', 'Takemichi facing his past to change the future.')">
+                            <img src="images/anime/tokyoghoul.png" alt="Tokyo Ghoul" onclick="showImageDetails('images/anime/tokyoghoul.png', 'Tokyo Ghoul', 'Kaneki with his mask—trapped between two worlds.')">
+                            <img src="images/anime/classroonelite.png" alt="Classroom of the Elite" onclick="showImageDetails('images/anime/classroonelite.png', 'Classroom of the Elite', 'Ayanokouji, the master strategist, hiding behind cold eyes.')">
+                            <img src="images/anime/sxf.png" alt="Spy x Family" onclick="showImageDetails('images/anime/sxf.png', 'Spy x Family', 'Anyas mischievous smile and Loid’s calm focus—family goals.')">
+                            <img src="images/anime/dandadan.png" alt="Dandadan" onclick="showImageDetails('images/anime/dandadan.png', 'Dandadan', 'A thrilling sketch of high-energy supernatural chaos.')">
+                            <img src="images/anime/hxh.png" alt="Hunter x Hunter" onclick="showImageDetails('images/anime/hxh.png', 'Hunter x Hunter', 'Gon and Killua on their journey—pure adventure vibes.')">
+                            <img src="images/anime/fma.png" alt="Fullmetal Alchemist" onclick="showImageDetails('images/anime/fma.png', 'Fullmetal Alchemist', 'Edward Elric with his automail arm—alchemy and sacrifice.')">
+                            <img src="images/anime/april.png" alt="Your Lie in April" onclick="showImageDetails('images/anime/april.png', 'Your Lie in April', 'Kaori playing the violin—beautiful and bittersweet.')">
+                            <img src="images/anime/name.png" alt="Your Name" onclick="showImageDetails('images/anime/name.png', 'Your Name', 'A breathtaking sketch of Taki and Mitsuha—two souls tied by fate and time.')">
+                            <img src="images/anime/pancrease.png" alt="I Want to Eat Your Pancreas" onclick="showImageDetails('images/anime/pancrease.png', 'I Want to Eat Your Pancreas', 'A tender tribute to Sakura and her quiet, beautiful story of love and life.')">
+                            <img src="images/anime/alits.png" alt="A Lull in the Sea" onclick="showImageDetails('images/anime/alits.png', 'A Lull in the Sea', 'Gentle waves and quiet hearts—this sketch captures the serene beauty of love beneath the sea.')">
+                            <img src="images/anime/ditf.png" alt="Darling in the FranXX" onclick="showImageDetails('images/anime/ditf.png', 'Darling in the FranXX', 'Zero Two with her fierce gaze and fragile heart—fighting for love in a broken world.')">
+                            <img src="images/anime/kc.png" alt="Karakuri Circus" onclick="showImageDetails('images/anime/kc.png', 'Karakuri Circus', 'Narumi, Shirogane, and Masaru caught in a dance of fate—puppets, pain, and fierce protection.')">
+                            <img src="images/anime/taj.png" alt="Tom and Jerry" onclick="showImageDetails('images/anime/tomjerry.png', 'Tom and Jerry', 'The eternal chase, full of laughter and chaos—this sketch captures pure childhood joy.')">
+                            <img src="images/anime/rn21.png" alt="Roll No 21" onclick="showImageDetails('images/anime/rn21.png', 'Roll No 21', 'Kris vs Kanishk—a mythic battle wrapped in school-day mischief and cartoon magic.')">
+                        </div>
+                        
+                    </div>
+                
+                    <!-- <p style="margin-top: 30px;">Stay tuned for my upcoming projects!</p> -->
+                </div>
+                
+                
+                <div id="contact" class="section">
+                    <h2 class="section-title">Contact Me</h2>
+                    <p>Feel free to reach out to me through any of the channels below:</p>
+                    <div style="margin-top: 30px;">
+                        <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> santhoshreddy.mstr@gmail.com</p>
+                        <p style="margin-top: 15px;"><i class="fab fa-instagram" style="margin-right: 10px;"></i> mohan._.santhosh</p>
+                        <p style="margin-top: 15px;"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Kakinada, Andhra Pradesh, India</p>
+                    </div>
+                    
+                    <a href="#" class="download-btn">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

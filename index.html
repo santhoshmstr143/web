@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santosh's Website</title>
+<style>
+body {
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+/* Background image will be replaced with your actual image */
+background-image: url('images/ash.png');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+ }
+.content {
+background-color: rgba(255, 255, 255, 0.8);
+padding: 40px;
+border-radius: 10px;
+text-align: center;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease;
+ }
+.content:hover {
+transform: scale(1.05);
+ }
+h1 {
+margin-bottom: 20px;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+/* Color changing animation */
+animation: colorChange 5s infinite;
+ }
+
+@keyframes colorChange {
+  0% { color: #ff5252; } /* Red */
+  20% { color: #ff9800; } /* Orange */
+  40% { color: #4CAF50; } /* Green */
+  60% { color: #2196F3; } /* Blue */
+  80% { color: #9c27b0; } /* Purple */
+  100% { color: #ff5252; } /* Back to red */
+}
+
+.btn {
+display: inline-block;
+background-color: #4CAF50;
+color: white;
+padding: 15px 30px;
+text-decoration: none;
+border-radius: 5px;
+font-size: 18px;
+transition: background-color 0.3s;
+ }
+.btn:hover {
+background-color: #45a049;
+ }
+</style>
+</head>
+<body>
+<div class="content">
+<h1>Santosh's Website</h1>
+<a href="home.html" class="btn">Enter Site</a>
+</div>
+</body>
+</html>
