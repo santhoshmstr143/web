@@ -38,21 +38,24 @@ body {
   margin: 0 auto;
   padding: 20px;
   display: flex;
+  background-color: transparent;
 }
 
 .sidebar {
   width: 250px;
-  background-color: #22222e;
+  /* background-color: #22222e; */
   padding: 20px;
   border-radius: 10px 0 0 10px;
   text-align: center;
+  background-color: rgba(34, 34, 46, 0.8);
 }
 
 .content {
   flex: 1;
-  background-color: #2a2a3a;
+  /* background-color: #2a2a3a; */
   padding: 30px;
   border-radius: 0 10px 10px 0;
+  background-color: rgba(42, 42, 58, 0.8);
 }
 
 .profile-img {
@@ -119,7 +122,7 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #ff6b6b;
+  background-color: #e60dba;
 }
 
 .year {
@@ -167,7 +170,7 @@ body {
 .skill-progress {
   height: 100%;
   border-radius: 5px;
-  background-color: #ff6b6b;
+  background-color: #e60dba;
   position: absolute;
   top: 0;
   left: 0;
@@ -192,7 +195,7 @@ body {
 .download-btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #ff6b6b;
+  background-color: #e60dba;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -201,7 +204,7 @@ body {
 }
 
 .download-btn:hover {
-  background-color: #ff4f4f;
+  background-color: #be28a0;
   transform: translateY(-3px);
 }
 
@@ -325,7 +328,7 @@ body {
   right: 15px;
   font-size: 24px;
   cursor: pointer;
-  color: #ff6b6b;
+  color: #e60dba;
   background: none;
   border: none;
   transition: transform 0.3s;
@@ -337,11 +340,86 @@ body {
 
 .modal-title {
   font-size: 24px;
-  color: #ff6b6b;
+  color: #e60dba;
   margin-bottom: 15px;
 }
 
 .modal-description {
   line-height: 1.6;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .skill-name {
+    font-size: 14px;
+  }
+
+  .social-links a {
+    font-size: 18px;
+  }
+
+  .download-btn {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+.analyze-btn {
+  background-color: #e60dba;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(230, 13, 186, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 15px;
+}
+
+.analyze-btn:hover {
+  background-color: #d10ca8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(230, 13, 186, 0.6);
+}
+
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999; /* Put it above everything */
+  pointer-events: none; /* So it doesn't block clicks */
+  mix-blend-mode: screen; /* Optional: helps glow over dark UI */
 }

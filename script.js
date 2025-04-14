@@ -161,3 +161,138 @@ class ParticleCanvas {
 window.addEventListener("DOMContentLoaded", () => {
   new ParticleCanvas();
 });
+
+
+// 🌸 Q2: User Activity Logging (click/view)
+function logEvent(event) {
+  const timestamp = new Date().toISOString();
+  const eventType = event.type === 'click' ? 'click' : 'view';
+
+  let targetType = event.target.tagName.toLowerCase();
+  if (event.target.tagName.toLowerCase() === 'img') {
+    targetType = 'image';
+  } else if (event.target.tagName.toLowerCase() === 'select') {
+    targetType = 'dropdown';
+  } else if (['p', 'h1', 'h2', 'h3', 'span'].includes(targetType)) {
+    targetType = 'text';
+  } else if (event.target.tagName.toLowerCase() === 'a') {
+    targetType = 'link';
+  }
+
+  console.log(`${timestamp} , ${eventType} , ${targetType}`);
+}
+
+window.addEventListener("load", () => {
+  logEvent({ type: "view", target: document.body });
+});
+
+document.addEventListener("click", logEvent);
+
+// 🌼 Q3: Text Analyzer with Counts
+
+// 🌷 Show initial "0" stats on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const result = `
+Letters: 0
+Words: 0
+Spaces: 0
+Newlines: 0
+Special Symbols: 0
+
+Pronoun Count: 0
+Pronoun Counts: {}
+
+Preposition Count: 0
+Preposition Counts: {}
+
+Indefinite Article Count: 0
+Indefinite Article Counts: {}
+  `;
+  const output = document.getElementById("analysisResult");
+  if (output) {
+    output.innerText = result;
+  }
+});
+
+
+function analyzeText() {
+  const text = document.getElementById("textInput").value;
+  const letters = (text.match(/[a-zA-Z]/g) || []).length;
+  const words = (text.match(/\b\w+\b/g) || []).length;
+  const spaces = (text.match(/ /g) || []).length;
+  const newlines = (text.match(/\n/g) || []).length;
+  const specialSymbols = (text.match(/[^a-zA-Z0-9\s]/g) || []).length;
+
+  const pronouns = ['i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them'];
+  const prepositions = ['in', 'on', 'at', 'with', 'by', 'for', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below'];
+  const articles = ['a', 'an', 'the'];
+
+  const tokens = text.toLowerCase().match(/\b\w+\b/g) || [];
+
+  const countOccurrences = (group) =>
+    group.reduce((acc, word) => {
+      const count = tokens.filter(token => token === word).length;
+      if (count) acc[word] = count;
+      return acc;
+    }, {});
+
+  const pronounCounts = countOccurrences(pronouns);
+  const prepositionCounts = countOccurrences(prepositions);
+  const articleCounts = countOccurrences(articles);
+
+  const totalPronouns = Object.values(pronounCounts).reduce((a, b) => a + b, 0);
+  const totalPrepositions = Object.values(prepositionCounts).reduce((a, b) => a + b, 0);
+  const totalArticles = Object.values(articleCounts).reduce((a, b) => a + b, 0);
+
+  const result = `
+Letters: ${letters}
+Words: ${words}
+Spaces: ${spaces}
+Newlines: ${newlines}
+Special Symbols: ${specialSymbols}
+
+Pronoun Count: ${totalPronouns}
+Pronoun Counts: ${JSON.stringify(pronounCounts, null, 2)}
+
+Preposition Count: ${totalPrepositions}
+Preposition Counts: ${JSON.stringify(prepositionCounts, null, 2)}
+
+Indefinite Article Count: ${totalArticles}
+Indefinite Article Counts: ${JSON.stringify(articleCounts, null, 2)}
+  `;
+
+  document.getElementById("analysisResult").innerText = result;
+}
+
+// 💫 Reset text analyzer when leaving the contact section
+const navLinks = document.querySelectorAll(".nav-links li");
+const sections = document.querySelectorAll(".section");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    const targetId = link.getAttribute("data-section");
+
+    // Hide all sections
+    sections.forEach(section => {
+      section.classList.remove("active");
+
+      // Clear text area if leaving the contact section
+      if (section.id === "contact") {
+        const textInput = document.getElementById("textInput");
+        const result = document.getElementById("analysisResult");
+        if (textInput && result) {
+          textInput.value = "";
+          result.innerText = "";
+        }
+      }
+    });
+
+    // Show target section
+    document.getElementById(targetId).classList.add("active");
+
+    // Update nav active link
+    navLinks.forEach(link => link.classList.remove("active"));
+    link.classList.add("active");
+  });
+});
+

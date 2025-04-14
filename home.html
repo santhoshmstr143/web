@@ -8,9 +8,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
+    <canvas id="canvas"></canvas>
     <div id="app">
         <!-- Canvas for particle effects -->
-        <canvas id="canvas"></canvas>
+        
 
         <!-- Image detail modal -->
         <div id="imageDetailModal" class="image-detail-modal">
@@ -32,6 +33,7 @@
                     <li data-section="skills">Skills</li>
                     <li data-section="portfolio">Hobbies</li>
                     <li data-section="contact">Contact</li>
+                    <li data-section="input">Input</li>
                 </ul>
                 <div class="social-links">
                     <a href="mailto:santhoshreddy.mstr@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
@@ -69,6 +71,12 @@
                         </div>
                         <div class="image-container" onclick="showImageDetails('images/kulai.png', 'Kulai Cheruvu Paek', 'A peaceful escape near home—Kulai Cheruvu holds the scent of rain-soaked soil, the shimmer of water under soft sunsets, and the quiet whispers of childhood walks.')">
                             <img src="images/kulai.png" alt="Kulai Cheruvu Paek" class="location-image">
+                        </div>                        
+                        <div class="image-container" onclick="showImageDetails('images/homesky.png', 'Home sky', 'The sky above my home—painted in peace and memories. Every cloud carries a whisper from childhood, and every breeze feels like a hug from the past.')">
+                            <img src="images/homesky.png" alt="Home Sky" class="location-image">
+                        </div>                        
+                        <div class="image-container" onclick="showImageDetails('images/krishna.png', 'Lord krishna', 'A divine moment frozen in time—Krishna’s gaze speaks of serenity, love, and playful divinity. It’s not just an image, it’s a feeling that smiles in silence.')">
+                            <img src="images/krishna.png" alt="Lord Krishna" class="location-image">
                         </div>                        
                     </div>
                 </div>
@@ -292,9 +300,22 @@
                         <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> santhoshreddy.mstr@gmail.com</p>
                         <p style="margin-top: 15px;"><i class="fab fa-instagram" style="margin-right: 10px;"></i> mohan._.santhosh</p>
                         <p style="margin-top: 15px;"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Kakinada, Andhra Pradesh, India</p>
-                    </div>
+                    </div> <br>
                     
-                    <a href="#" class="download-btn">Download CV</a>
+                    <a href="pdf/cv.pdf" class="download-btn">
+                        <i class="fas fa-eye" style="margin-right: 8px;"></i> View CV
+                    </a>
+                    
+                    <a href="pdf/cv.pdf" class="download-btn" download>
+                        <i class="fas fa-download" style="margin-right: 8px;"></i> Download CV
+                    </a>
+                </div>
+                <div id="input" class="section">
+                    <h2 class="section-title">Text Analyzer</h2>
+                    <p>Enter a text to analyze its sentiment and word frequency.</p>
+                    <textarea id="textInput" rows="10" cols="80" placeholder="Paste your 10000+ word text here..." style="width: 100%; padding: 10px;"></textarea>
+                    <button class="analyze-btn" onclick="analyzeText()">Analyze</button>
+                    <pre id="analysisResult" style="text-align: left; background-color: #323245; padding: 15px; margin-top: 15px; border-radius: 5px;"></pre>
                 </div>
             </div>
         </div>
