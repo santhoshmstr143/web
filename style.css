@@ -333,6 +333,11 @@ body {
   gap: 15px;
 }
 
+#education ul {
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+
 .image-grid img {
   width: 100%;
   height: auto;
