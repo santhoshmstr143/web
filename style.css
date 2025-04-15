@@ -52,7 +52,6 @@ body {
 
 .content {
   flex: 1;
-  /* background-color: #2a2a3a; */
   padding: 30px;
   border-radius: 0 10px 10px 0;
   background-color: rgba(42, 42, 58, 0.8);
@@ -466,7 +465,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9999; /* Put it above everything */
-  pointer-events: none; /* So it doesn't block clicks */
-  mix-blend-mode: screen; /* Optional: helps glow over dark UI */
+  z-index: 9999; 
+  pointer-events: none; 
+  mix-blend-mode: screen;
 }
